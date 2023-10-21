@@ -1,0 +1,40 @@
+  <app-header-nav class="header"></app-header-nav>
+
+<div class="card border-gray">
+  <div class="card-header">
+    <h3 class="card-title">Portafolio</h3>
+  </div>
+  <div class="card-body text-dark sectionPortafolio">
+    <!-- Section-->
+    <section class="py-0">
+      <div class="container px-2 px-lg-2 mt-2">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+          <div class="col mb-3" *ngFor="let car of listCarsPortfolio">
+            <div class="card h-100">
+              <img class="card-img-top" src="{{ car.imagePath }}" alt="..." />
+              <div class="card-body p-1">
+                <div class="text-center">
+                  <h5 class="fw-bolder">{{ car.reference }}</h5>
+                  <h6 class="fw-bolder">{{ car.brandCarString }}</h6>
+                  ${{ car.price | number }}
+                </div>
+              </div>
+              <!-- Product actions-->
+              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                <div class="text-center">
+                  <a *ngIf="car.stock != 0"
+                    class="btn btn-outline-success mt-auto mr-2"
+                    (click)="addCarShoppingCart(car)">
+                    <i class="bi-cart-fill me-1"></i> Agregar</a>
+                  <!-- <a *ngIf="car.stock != 0" class="btn btn-outline-danger mt-auto" (click)="deleteCarShoppingCart(car)" ><i class="bi-cart-fill me-1"></i>Eliminar</a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<app-footer></app-footer>

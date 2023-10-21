@@ -1,0 +1,131 @@
+<!-- Navbar -->
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+  
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- Navbar brand -->
+  
+        <a class="navbar-brand mt-2 mt-lg-0" href="#">
+          <img
+            src="../../../../../assets/images/logo.png"
+            height="60"
+            alt="MDB Logo"
+            loading="lazy"
+          />
+        </a>
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/portafolio"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }">
+              Portafolio
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              *ngIf="rol === rolAdmin"
+              class="nav-link"
+              routerLink="/admin/car-register"
+              routerLinkActive="active">
+              Registrar auto
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/portafolio/historial-compras"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }">
+              Historial de Compra
+            </a>
+          </li>
+        </ul>
+  
+        <div class="text-end">
+          <div class="row">
+            <div class="col">
+              <button
+                routerLink="/portafolio/carrito"
+                class="btn btn-outline-light"
+              >
+                <i class="bi-cart-fill me-1"></i>
+                Carrito
+                <span class="badge rounded-pill badge-notification bg-black">{{numberCars}}</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Left links -->
+      </div>
+      <div class="d-flex align-items-center">
+        <!-- Icon -->
+        <a class="text-reset me-3" href="#">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+  
+        <div class="dropdown mr-10"></div>
+  
+        <!-- Notifications
+        <div class="dropdown">
+          <a
+            class="text-reset me-3 dropdown-toggle hidden-arrow"
+            routerLink="../portafolio/carrito"
+            id="navbarDropdownMenuLink"
+            role="button"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false">
+            <i class="fas fa-bell"></i>
+            <span class="badge rounded-pill badge-notification bg-danger">{{numberProducts}}</span>
+        </a>
+        </div> -->
+  
+        <div class="dropdown pr-10 mr-10 ml-10">
+          <a
+            class="btn btn-secondary dropdown-toggle"
+            href="#"
+            role="button"
+            id="dropdownMenuLink"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            {{ nameCustomer }}
+          </a>
+  
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li class="dropdown-item">
+              <h6>{{ rol }}</h6>
+            </li>
+            <li class="dropdown-item">
+              <p>{{ emailCustomer }}</p>
+            </li>
+  
+            <li class="dropdown-item">
+              <button class="btn btn-outline-danger btn-sm" (click)="logout()">
+                Sign Out
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+</header>
+

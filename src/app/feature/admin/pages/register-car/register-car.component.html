@@ -1,0 +1,35 @@
+
+<header>
+  <app-header-nav></app-header-nav>
+</header>
+
+<div class="card bg-white text-black">
+  <div class="card-header">
+    <h3 class="card-title">{{ titulo }}</h3>
+  </div>
+  <div class="card-body">
+    <form role="form" [formGroup]="registerCarForm">
+      <div class="divForm text-center">
+          <h5>Informacion basica</h5>
+          <app-info-basic-car></app-info-basic-car>
+          <h5>Informacion mecanica</h5>
+          <app-info-mech-car></app-info-mech-car>
+          <h5>Informacion general</h5>
+          <app-info-aesthetic-car></app-info-aesthetic-car>
+          
+          <div class="d-flex flex-row justify-content-center alig-items-center">
+            <button (click)="registerCar()" 
+                type="submit" 
+                class="btn btn-primary mb-2 mt-4 col-4">
+                Registrar
+            </button>
+          </div>
+      </div>
+     
+    </form>
+  </div>
+</div>
+
+
+<app-footer></app-footer>
+

@@ -1,0 +1,48 @@
+  <app-header-nav></app-header-nav>
+
+<div class="card border-gray">
+  <div class="card-header">
+    <h3 class="card-title">Carrito de compras</h3>
+  </div>
+  <div class="container card-body text-dark">
+
+    <div *ngIf="listCarsPurchase?.length == 0" class="alert alert-warning">
+      No hay elementos en el carrito.
+    </div>
+
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <!--  -->
+          <th>Código</th>
+          <th>Cantidad</th>
+          <th>Importe </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let car of listCarsPurchase">
+          <td>{{ car.codeCar }}</td>
+          <td>{{ car.quantity }}</td>
+          <td>{{ car.total | number}}</td>
+
+          <td>
+            <button
+              type="button"
+              name="eliminar"
+              (click)="delete(car)"
+              class="btn btn-danger btn-sm">
+              eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button *ngIf="listCarsPurchase?.length > 0" type="button" class="btn btn-primary" (click)="registerPurchase()">
+      Registrar compra
+    </button>
+  </div>
+</div>
+
+<app-footer></app-footer>

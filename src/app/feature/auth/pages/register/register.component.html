@@ -1,0 +1,127 @@
+<section class="text-center text-lg-start">
+  <!-- Jumbotron -->
+  <div class="container py-4">
+    <div class="row g-0 align-items-center">
+      <div class="col-lg-3 mb-5 mb-lg-0">
+        <div class="card cascading-right background">
+          <div class="card-body p-5 shadow-5 text-center">
+            <h4 class="fw-bold mb-2">Registro de usuario</h4>
+
+            <form
+              role="form"
+              [formGroup]="registerForm"
+              *ngIf="registered == false"
+            >
+              <div class="row">
+                <div class="col-md-12 mb-4">
+                  <div class="form-outline">
+                    <label class="form-label" for="form3Example1"
+                      >Número de identificacion</label
+                    >
+                    <input
+                      formControlName="cardId"
+                      type="text"
+                      id="form3Example2"
+                      class="form-control"
+                    />
+                    <span class="text-danger">{{
+                      getErrorForm("cardId")
+                    }}</span>
+                  </div>
+                  <div class="form-outline">
+                    <label class="form-label" for="form3Example1"
+                      >Nombre completo</label
+                    >
+                    <input
+                      formControlName="fullName"
+                      type="text"
+                      id="form3Example1"
+                      class="form-control"
+                    />
+                    <span class="text-danger">{{
+                      getErrorForm("fullName")
+                    }}</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example3">Email</label>
+                <input
+                  formControlName="email"
+                  type="email"
+                  id="form3Example3"
+                  class="form-control"
+                />
+                <span class="text-danger">{{ getErrorForm("email") }}</span>
+              </div>
+
+              <!-- Cellphone input -->
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form3Example3">Teléfono</label>
+                <input
+                  formControlName="numberCellphone"
+                  type="email"
+                  id="form3Example6"
+                  class="form-control"
+                />
+                <span class="text-danger">{{
+                  getErrorForm("numberCellphone")
+                }}</span>
+              </div>
+
+              <!-- Checkbox -->
+              <div class="form-check d-flex justify-content-center mb-4">
+                <input
+                  class="form-check-input me-2"
+                  type="checkbox"
+                  value=""
+                  id="form2Example33"
+                  checked
+                />
+                <label class="form-check-label" for="form2Example33">
+                  Acepto términos y condiciones
+                </label>
+              </div>
+
+              <!-- Submit button -->
+              <button
+                (click)="register()"
+                type="submit"
+                class="btn btn-primary btn-block mb-4"
+              >
+                Registrase
+              </button>
+
+              <!-- Register buttons -->
+              <div class="text-center">
+                <p>Ya estas registrado: <a routerLink="../login">click aqui</a></p>
+                
+              </div>
+            </form>
+            <div *ngIf="registered == true">
+              <p>Registro existoso, su contraseña predeterminada es:</p>
+              <h3>{{ passwordGenerated }}</h3>
+              <p>
+                Guardela en un lugar seguro y recuerdela, no la puede recuperar.
+              </p>
+              <p>Puedes iniciar sesión:</p>
+              <a routerLink="../login">Aquí</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-9 mb-5 mb-lg-0">
+        <img
+          src="../../../../../assets/images/wp.jpg"
+          class="w-100 rounded-4 shadow-4"
+          alt=""
+        />
+      </div>
+    </div>
+  </div>
+  <!-- Jumbotron -->
+</section>
+<!-- Section: Design Block -->

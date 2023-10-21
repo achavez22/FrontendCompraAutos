@@ -1,0 +1,7 @@
+
+.divForm {
+    height: 70vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 100%;
+  }
