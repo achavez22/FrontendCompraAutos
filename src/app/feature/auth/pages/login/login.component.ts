@@ -63,32 +63,6 @@ export class LoginComponent extends AppBaseComponent {
     }
 
   }
-  // public async signIn(): Promise<void> {
-
-  //   let dtoLogin: AuthLoginRequestDto;
-
-  //   if (this.loginForm.valid) {
-  //     let email = this.loginForm.get('email').value;
-  //     let password = this.loginForm.get('password').value;
-
-  //     dtoLogin = {
-  //       "email": email,
-  //       password
-  //     }
-
-  //     await lastValueFrom(this.authService.signIn(dtoLogin));
-  //     await this.router.navigateByUrl("/portafolio");
-
-  //   } else {
-  //     Swal.fire({
-  //       icon: 'warning',
-  //       title: 'Advertencia',
-  //       text: 'Hay errores en el formulario, reviselo por favor'
-  //     })
-  //     this.loginForm.markAllAsTouched();
-  //   }
-
-  // }
   
   public getErrorForm(field: string): string {
     let message;
