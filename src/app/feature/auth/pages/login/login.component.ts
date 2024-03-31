@@ -29,7 +29,7 @@ export class LoginComponent extends AppBaseComponent {
     });
   }
 
-  public async signIn(): Promise<void> {
+  public signIn(){
 
     let dtoLogin: AuthLoginRequestDto;
 
@@ -42,8 +42,16 @@ export class LoginComponent extends AppBaseComponent {
         password
       }
 
-      await lastValueFrom(this.authService.signIn(dtoLogin));
-      await this.router.navigateByUrl("/portafolio");
+      this.authService.signIn(dtoLogin)
+        .subscribe(response => {
+          this.router.navigateByUrl("/portafolio");
+
+        }, error => {
+          Swal.fire('Error', error.error.detail, 'error');          
+        }
+
+      );
+
 
     } else {
       Swal.fire({
@@ -55,6 +63,32 @@ export class LoginComponent extends AppBaseComponent {
     }
 
   }
+  // public async signIn(): Promise<void> {
+
+  //   let dtoLogin: AuthLoginRequestDto;
+
+  //   if (this.loginForm.valid) {
+  //     let email = this.loginForm.get('email').value;
+  //     let password = this.loginForm.get('password').value;
+
+  //     dtoLogin = {
+  //       "email": email,
+  //       password
+  //     }
+
+  //     await lastValueFrom(this.authService.signIn(dtoLogin));
+  //     await this.router.navigateByUrl("/portafolio");
+
+  //   } else {
+  //     Swal.fire({
+  //       icon: 'warning',
+  //       title: 'Advertencia',
+  //       text: 'Hay errores en el formulario, reviselo por favor'
+  //     })
+  //     this.loginForm.markAllAsTouched();
+  //   }
+
+  // }
   
   public getErrorForm(field: string): string {
     let message;
