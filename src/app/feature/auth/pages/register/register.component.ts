@@ -4,9 +4,10 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {AuthService} from "../../../../core/services/auth.service";
 import {ErrorsForm} from "../../../../core/enums/ErrorsForm";
-import {RegisterRequestDto} from "../../../../core/model/registerRequestDto";
+import {RegisterRequest} from "../../../../core/model/registerRequest.model";
 import {lastValueFrom} from "rxjs";
 import Swal from 'sweetalert2'
+import { RegisterResponse } from 'src/app/core/model/registerResponse.model';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class RegisterComponent extends AppBaseComponent  {
 
   public registerForm: FormGroup;
   public passwordGenerated: string;
+  public userRegistered: RegisterResponse;
   public registered: boolean;
 
   constructor(private router: Router, private fb: FormBuilder, private authService: AuthService) {
@@ -29,20 +31,28 @@ export class RegisterComponent extends AppBaseComponent  {
       email: ['', [ Validators.required, Validators.pattern("^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
         + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$") ]],
       numberCellphone: ['', [ Validators.required, Validators.pattern("^[0-9]*$") ] ],
+      password: ['', Validators.required ],
     });
   }
 
-
-  public async register(): Promise<void> {
-    let dtoRegister: RegisterRequestDto = this.registerForm.value;
+  public registerUser(): void {
+    let registerData: RegisterRequest = this.registerForm.value;
     if (this.registerForm.valid) {
-      await lastValueFrom(this.authService.register(dtoRegister)).then(resp => {
-        this.passwordGenerated = resp.password;
-      })
-
-      this.registered = true;
-
-    } else {
+      this.authService.register(registerData).subscribe({
+        next: (response) => {
+          this.userRegistered = response;
+          this.registered = true;
+        },
+        error: (err) => {console.log(err.error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: err.error.detail
+          })
+        }
+      });
+      
+    }else {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
@@ -51,18 +61,14 @@ export class RegisterComponent extends AppBaseComponent  {
       console.log(this.getAllErrorsForm(this.registerForm));
       this.registerForm.markAllAsTouched();
     }
-
+    
   }
 
 
-  /**
-   * Retorna mensaje de error de un campo del formulario
-   * @param field
-   */
   public getErrorForm(field: string): string {
     let message;
 
-    const required: Array<String> = ["cardId", "fullName", "email", "numberCellphone"];
+    const required: Array<String> = ["cardId", "fullName", "email", "numberCellphone", "password"];
     const formatEmail: Array<String> = ["email"]
     const olnyNumber: Array<String> = ["numberCellphone"]
 

@@ -1,4 +1,4 @@
-export interface RegisterRequestDto {
+export interface RegisterRequest{
   cardId: string;
   fullName: string;
   email: string;
