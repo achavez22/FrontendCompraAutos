@@ -1,69 +1,67 @@
-<section class="text-center text-lg-start">
-  <!-- Jumbotron -->
-  <div class="container py-4">
-    <div class="row g-0 align-items-center">
-      <div class="col-lg-3 mb-5 mb-lg-0">
-        <div class="card cascading-right background">
-          <div class="card-body p-8 shadow-5 text-center">
-            <h2 class="fw-bold mb-5">Inicio de sesión</h2>
-            <form role="form" [formGroup]="loginForm">
-                <!-- Email input -->
-                <div class="form-outline mb-4">
-                  <label class="form-label" for="form3Example3">Email</label>
-                  <input
-                    formControlName="email"
-                    [ngClass]="{ error: isTouchedField(loginForm, 'email') }"
-                    type="email"
-                    id="form3Example3"
-                    class="form-control"
-                    placeholder="email"
-                  />
-                  <span class="text-danger">{{ getErrorForm("email") }}</span>
-                </div>
+<div
+	class="bg-purple-900 absolute top-0 left-0 bg-gradient-to-b from-gray-900 via-gray-900 to-purple-800 bottom-0 leading-5 h-full w-full overflow-hidden">
+</div>
+<div class="relative   min-h-screen  sm:flex sm:flex-row  justify-center bg-transparent rounded-3xl shadow-xl">
+	<div class="flex-col flex  self-center lg:px-14 sm:max-w-4xl xl:max-w-md  z-10">
+		<div class="self-start hidden lg:flex flex-col  text-gray-300">
+			<h1 class="my-3 font-semibold text-4xl">Bienvenido de nuevo</h1>
+			<p class="pr-3 text-sm opacity-75">Esta plataforma es con fines educativos donde se ejemplifica un proyecto
+				realizado en spring boot y angular</p>
+		</div>
+	</div>
+	<div class="flex justify-center self-center  z-10">
+		<div class="p-12 bg-white mx-auto rounded-3xl w-96 ">
+			<div class="mb-7">
+				<h3 class="font-semibold text-2xl text-gray-800">Iniciar sesion </h3>
+				<p class="text-gray-400">¿No tienes una cuenta?
+					<a routerLink="../register" class="text-sm text-purple-700 hover:text-purple-700">Inscribete</a>
+				</p>
+			</div>
+			<div class="space-y-6">
+				<div class="">
+					<input
+						class=" w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-purple-400"
+						type="" placeholder="Username">
+				</div>
 
-              <!-- Password input -->
-              <div class="form-outline mb-4">
-                <label class="form-label" for="form3Example4">Contraseña</label>
-                <input
-                  formControlName="password"
-                  [ngClass]="{ error: isTouchedField(loginForm, 'password') }"
-                  type="password"
-                  id="form3Example4"
-                  class="form-control"
-                  placeholder="password"
-                />
-                <span class="text-danger">{{ getErrorForm("password") }}</span>
-              </div>
 
-              <!-- Submit button -->
-              <button
-                (click)="signIn()"
-                type="submit"
-                class="btn btn-primary btn-block mb-3">
-                  Iniciar sesión
-              </button>
+				<div class="relative" x-data="{ show: true }">
+					<input placeholder="Password" type="password" style="color: #000;"
+						class="text-sm text-gray-200 px-4 py-3 rounded-lg w-full bg-gray-200 focus:bg-gray-100 border border-gray-200 focus:outline-none focus:border-purple-400">
+					<div class="flex items-center absolute inset-y-0 right-0 mr-3  text-sm leading-5">
+					</div>
+				</div>
 
-              <!-- Register buttons -->
-              <div>
-                <p>Si no te has registrado,</p>
-                <a routerLink="../register">click aqui</a>
-              </div>
-            </form>
-          </div>
-        </div>
-        
-      </div>
 
-      <div class="col-lg-9 mb-5 mb-lg-0">
-        <!-- src="https://st1.uvnimg.com/d1/f3/8e7325e64441883e4c135a61dddd/los-mejores-carros-2022.jpg" -->
-        <img
-          src="../../../../../assets/images/wp.jpg"
-          class="w-100 rounded-3 shadow-5"
-          alt=""
-        />
-      </div>
-    </div>
-  </div>
-  <!-- Jumbotron -->
-</section>
-<!-- Section: Design Block -->
+				<div class="flex items-center justify-between">
+
+					<div class="text-sm ml-auto">
+						<a href="#" class="text-purple-700 hover:text-purple-600">
+							¿Olvidaste tu contraseña?
+						</a>
+					</div>
+				</div>
+				<div>
+					<button (click)="signIn()" type="submit"
+						class="w-full flex justify-center bg-purple-800  hover:bg-purple-700 text-gray-100 p-3  rounded-lg tracking-wide font-semibold  cursor-pointer transition ease-in duration-500">
+						Iniciar sesion
+					</button>
+				</div>
+				<div class="flex items-center justify-center space-x-2 my-5"></div>
+
+			</div>
+			<div class="mt-7 text-center text-gray-300 text-xs">
+				<span>
+					Copyright © 2025
+
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
+
+<svg class="absolute bottom-0 left-0 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+	<path fill="#fff" fill-opacity="1"
+		d="M0,0L40,42.7C80,85,160,171,240,197.3C320,224,400,192,480,154.7C560,117,640,75,720,74.7C800,75,880,117,960,154.7C1040,192,1120,224,1200,213.3C1280,203,1360,149,1400,122.7L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z">
+	</path>
+</svg>
