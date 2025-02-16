@@ -18,42 +18,37 @@
 				</p>
 			</div>
 			<div class="space-y-6">
-				<div class="">
-					<input
-						class=" w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-purple-400"
-						type="" placeholder="Username">
-				</div>
-
-
-				<div class="relative" x-data="{ show: true }">
-					<input placeholder="Password" type="password" style="color: #000;"
-						class="text-sm text-gray-200 px-4 py-3 rounded-lg w-full bg-gray-200 focus:bg-gray-100 border border-gray-200 focus:outline-none focus:border-purple-400">
-					<div class="flex items-center absolute inset-y-0 right-0 mr-3  text-sm leading-5">
+				<form role="form" [formGroup]="loginForm">
+					<!-- Email input -->
+					<div class="form-outline mb-4">
+						<input
+							formControlName="email"
+							class=" w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-purple-400"
+							type="" placeholder="email">
+						<span class="text-danger">{{ getErrorForm("email") }}</span>
 					</div>
-				</div>
-
-
-				<div class="flex items-center justify-between">
-
-					<div class="text-sm ml-auto">
-						<a href="#" class="text-purple-700 hover:text-purple-600">
-							¿Olvidaste tu contraseña?
-						</a>
+				
+					<!-- Password input -->
+					<div class="form-outline mb-4">
+						<input placeholder="Password" 
+							formControlName="password"
+							type="password" style="color: #000;"
+							[ngClass]="{ error: isTouchedField(loginForm, 'password') }"
+							class="text-sm text-gray-200 px-4 py-3 rounded-lg w-full bg-gray-200 focus:bg-gray-100 border border-gray-200 focus:outline-none focus:border-purple-400">
+						<span class="text-danger">{{ getErrorForm("password") }}</span>
 					</div>
-				</div>
-				<div>
+				
 					<button (click)="signIn()" type="submit"
 						class="w-full flex justify-center bg-purple-800  hover:bg-purple-700 text-gray-100 p-3  rounded-lg tracking-wide font-semibold  cursor-pointer transition ease-in duration-500">
 						Iniciar sesion
 					</button>
-				</div>
+				</form>
 				<div class="flex items-center justify-center space-x-2 my-5"></div>
 
 			</div>
 			<div class="mt-7 text-center text-gray-300 text-xs">
 				<span>
 					Copyright © 2025
-
 				</span>
 			</div>
 		</div>

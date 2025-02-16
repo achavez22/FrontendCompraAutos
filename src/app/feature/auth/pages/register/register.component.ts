@@ -26,15 +26,18 @@ export class RegisterComponent extends AppBaseComponent  {
     this.registerForm = this.fb.group({
       cardId: ['', [ Validators.required ] ],
       fullName: ['', Validators.required ],
+      numberCellphone: ['', [ Validators.required, Validators.pattern("^[0-9]*$") ]],
       email: ['', [ Validators.required, Validators.pattern("^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
         + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$") ]],
-      numberCellphone: ['', [ Validators.required, Validators.pattern("^[0-9]*$") ] ],
+      password: ['', Validators.required],
     });
   }
 
 
   public async register(): Promise<void> {
     let dtoRegister: RegisterRequestDto = this.registerForm.value;
+    console.log(dtoRegister);
+    
     if (this.registerForm.valid) {
       await lastValueFrom(this.authService.register(dtoRegister)).then(resp => {
         this.passwordGenerated = resp.password;
@@ -48,7 +51,6 @@ export class RegisterComponent extends AppBaseComponent  {
         title: 'Oops...',
         text: 'Hay errores en el formulario, reviselo por favor'
       })
-      console.log(this.getAllErrorsForm(this.registerForm));
       this.registerForm.markAllAsTouched();
     }
 
@@ -73,7 +75,7 @@ export class RegisterComponent extends AppBaseComponent  {
         message = ErrorsForm.REQUIRED;
       } else if (formatEmail.includes(field) && this.registerForm.get(field).hasError('pattern')) {
         message = ErrorsForm.EMAIL_FORMAT;
-      } else if (olnyNumber.includes(field) && this.registerForm.get(field).hasError('pattern')) {
+      }else if (olnyNumber.includes(field) && this.registerForm.get(field).hasError('pattern')) {
         message = ErrorsForm.ONLY_NUMBER;
       }
     }

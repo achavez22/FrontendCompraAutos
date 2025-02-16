@@ -1,217 +1,84 @@
 <div
-	class="bg-purple-900 absolute top-0 left-0 bg-gradient-to-b from-gray-900 via-gray-900 to-purple-800 bottom-0 leading-5 h-full w-full overflow-hidden">
+  class="bg-purple-900 absolute top-0 left-0 bg-gradient-to-b from-gray-900 via-gray-900 to-purple-800 bottom-0 leading-5 h-full w-full overflow-hidden">
 </div>
 <div class="relative   min-h-screen  sm:flex sm:flex-row  justify-center bg-transparent rounded-3xl shadow-xl">
-	<div class="flex-col flex  self-center lg:px-14 sm:max-w-4xl xl:max-w-md  z-10">
-		<div class="self-start hidden lg:flex flex-col  text-gray-300">
-			<h1 class="my-3 font-semibold text-4xl">Registrate!</h1>
-			<p class="pr-3 text-sm opacity-75">Esta plataforma es con fines educativos donde se ejemplifica un proyecto
-				realizado en spring boot 3.0 y angular 16</p>
-		</div>
-	</div>
-	<div class="flex justify-center self-center  z-10">
-		<div class="p-12 bg-white mx-auto rounded-3xl w-96 ">
-			<div class="mb-7">
-				<h3 class="font-semibold text-2xl text-gray-800">Registro de usuario</h3>
-				<p class="text-gray-400">Ya tienes una cuenta?
-					<a routerLink="../login" class="text-sm text-purple-700 hover:text-purple-700">Inicia sesion</a>
-				</p>
-			</div>
-			<div class="space-y-6">
+  <div class="flex-col flex  self-center lg:px-14 sm:max-w-4xl xl:max-w-md  z-10">
+    <div class="self-start hidden lg:flex flex-col  text-gray-300">
+      <h1 class="my-3 font-semibold text-4xl">Registrate!</h1>
+      <p class="pr-3 text-sm opacity-75">Esta plataforma es con fines educativos donde se ejemplifica un proyecto
+        realizado en spring boot 3.0 y angular 16</p>
+    </div>
+  </div>
+  <div class="flex justify-center self-center  z-10">
+    <div class="p-12 bg-white mx-auto rounded-3xl w-96 ">
+      <div class="mb-7">
+        <h3 class="font-semibold text-2xl text-gray-800">Registro de usuario</h3>
+        <p class="text-gray-400">Ya tienes una cuenta?
+          <a routerLink="../login" class="text-sm text-purple-700 hover:text-purple-700">Inicia sesion</a>
+        </p>
+      </div>
+      <div class="space-y-6">
+        <form role="form" [formGroup]="registerForm" *ngIf="registered == false">
+          <div class="row">
+            <div class="col-md-12 mb-4">
 
-        <div class="relative">
-					<input
-						class=" w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-purple-400"
-						type="" placeholder="Num. de identificacion">
-				</div>
-
-        <div class="relative">
-					<input
-						class=" w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-purple-400"
-						type="" placeholder="Nombre completo">
-				</div>
-
-        <div class="relative">
-					<input
-						class=" w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-purple-400"
-						type="" placeholder="email">
-				</div>
-
-				<div class="relative">
-					<input
-						class=" w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-purple-400"
-						type="" placeholder="Username">
-				</div>
-
-
-				<div class="relative" x-data="{ show: true }">
-					<input placeholder="Password" type="password" style="color: #000;"
-						class="text-sm text-gray-200 px-4 py-3 rounded-lg w-full bg-gray-200 focus:bg-gray-100 border border-gray-200 focus:outline-none focus:border-purple-400">
-					<div class="flex items-center absolute inset-y-0 right-0 mr-3  text-sm leading-5">
-					</div>
-				</div>
-
-
-				<div class="flex items-center justify-between">
-
-					<div class="text-sm ml-auto">
-						<a href="#" class="text-purple-700 hover:text-purple-600">
-							¿Olvidaste tu contraseña?
-						</a>
-					</div>
-				</div>
-				<div>
-					<button (click)="register()" type="submit"
-						class="w-full flex justify-center bg-purple-800  hover:bg-purple-700 text-gray-100 p-3  rounded-lg tracking-wide font-semibold  cursor-pointer transition ease-in duration-500">
-						Registrarse
-					</button>
-				</div>
-				<div class="flex items-center justify-center space-x-2 my-5"></div>
-
-			</div>
-			<div class="mt-7 text-center text-gray-300 text-xs">
-				<span>
-					Copyright © 2025
-
-				</span>
-			</div>
-		</div>
-	</div>
-</div>
-
-<svg class="absolute bottom-0 left-0 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-	<path fill="#fff" fill-opacity="1"
-		d="M0,0L40,42.7C80,85,160,171,240,197.3C320,224,400,192,480,154.7C560,117,640,75,720,74.7C800,75,880,117,960,154.7C1040,192,1120,224,1200,213.3C1280,203,1360,149,1400,122.7L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z">
-	</path>
-</svg>
-
-
-
-
-<section class="text-center text-lg-start">
-  <!-- Jumbotron -->
-  <div class="container py-4">
-    <div class="row g-0 align-items-center">
-      <div class="col-lg-3 mb-5 mb-lg-0">
-        <div class="card cascading-right background">
-          <div class="card-body p-5 shadow-5 text-center">
-            <h4 class="fw-bold mb-2">Registro de usuario</h4>
-
-            <form
-              role="form"
-              [formGroup]="registerForm"
-              *ngIf="registered == false"
-            >
-              <div class="row">
-                <div class="col-md-12 mb-4">
-                  <div class="form-outline">
-                    <label class="form-label" for="form3Example1"
-                      >Número de identificacion</label
-                    >
-                    <input
-                      formControlName="cardId"
-                      type="text"
-                      id="form3Example2"
-                      class="form-control"
-                    />
-                    <span class="text-danger">{{
-                      getErrorForm("cardId")
-                    }}</span>
-                  </div>
-                  <div class="form-outline">
-                    <label class="form-label" for="form3Example1"
-                      >Nombre completo</label
-                    >
-                    <input
-                      formControlName="fullName"
-                      type="text"
-                      id="form3Example1"
-                      class="form-control"
-                    />
-                    <span class="text-danger">{{
-                      getErrorForm("fullName")
-                    }}</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Email input -->
-              <div class="form-outline mb-4">
-                <label class="form-label" for="form3Example3">Email</label>
+              <div class="relative">
                 <input
-                  formControlName="email"
-                  type="email"
-                  id="form3Example3"
-                  class="form-control"
-                />
-                <span class="text-danger">{{ getErrorForm("email") }}</span>
+                  class=" w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-purple-400"
+                  type="text" formControlName="cardId" placeholder="Num. de identificacion">
+                <span class="text-danger">{{ getErrorForm("cardId")}}</span>
               </div>
 
-              <!-- Cellphone input -->
-              <div class="form-outline mb-4">
-                <label class="form-label" for="form3Example3">Teléfono</label>
+              <div class="relative my-2">
                 <input
-                  formControlName="numberCellphone"
-                  type="email"
-                  id="form3Example6"
-                  class="form-control"
-                />
-                <span class="text-danger">{{
-                  getErrorForm("numberCellphone")
-                }}</span>
+                  class=" w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-purple-400"
+                  type="text" formControlName="fullName" placeholder="Nombre completo">
+                <span class="text-danger">{{ getErrorForm("fullName")}}</span>
               </div>
 
-              <!-- Checkbox -->
-              <div class="form-check d-flex justify-content-center mb-4">
+              <div class="relative my-2">
                 <input
-                  class="form-check-input me-2"
-                  type="checkbox"
-                  value=""
-                  id="form2Example33"
-                  checked
-                />
-                <label class="form-check-label" for="form2Example33">
-                  Acepto términos y condiciones
-                </label>
+                  class=" w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-purple-400"
+                  type="text" formControlName="email" placeholder="Email">
+                <span class="text-danger">{{ getErrorForm("email")}}</span>
               </div>
-
-              <!-- Submit button -->
-              <button
-                (click)="register()"
-                type="submit"
-                class="btn btn-primary btn-block mb-4"
-              >
-                Registrase
-              </button>
-
-              <!-- Register buttons -->
-              <div class="text-center">
-                <p>Ya estas registrado: <a routerLink="../login">click aqui</a></p>
-                
+              <div class="relative my-2">
+                <input
+                  class=" w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-purple-400"
+                  type="text" formControlName="numberCellphone" placeholder="Numero de telefono">
+                <span class="text-danger">{{ getErrorForm("numberCellphone")}}</span>
               </div>
-            </form>
-            <div *ngIf="registered == true">
-              <p>Registro existoso, su contraseña predeterminada es:</p>
-              <h3>{{ passwordGenerated }}</h3>
-              <p>
-                Guardela en un lugar seguro y recuerdela, no la puede recuperar.
-              </p>
-              <p>Puedes iniciar sesión:</p>
-              <a routerLink="../login">Aquí</a>
+              <div class="relative my-2">
+                <input
+                  class=" w-full text-sm  px-4 py-3 bg-gray-200 focus:bg-gray-100 border  border-gray-200 rounded-lg focus:outline-none focus:border-purple-400"
+                  type="password" formControlName="password" placeholder="Password">
+                <span class="text-danger">{{ getErrorForm("password")}}</span>
+              </div>
             </div>
           </div>
+          <div>
+            <button (click)="register()" type="submit"
+              class="w-full flex justify-center bg-purple-800  hover:bg-purple-700 text-gray-100 p-3  rounded-lg tracking-wide font-semibold  cursor-pointer transition ease-in duration-500">
+              Registrarse
+            </button>
+          </div>
+        </form>
+        <div *ngIf="registered == true">
+          <p class="text-gray-600">Registro existoso, por favor guarde sus datos en un lugar seguro.</p>
         </div>
-      </div>
 
-      <div class="col-lg-9 mb-5 mb-lg-0">
-        <img
-          src="../../../../../assets/images/wp.jpg"
-          class="w-100 rounded-4 shadow-4"
-          alt=""
-        />
+      </div>
+      <div class="mt-7 text-center text-gray-300 text-xs">
+        <span>
+          Copyright © 2025
+        </span>
       </div>
     </div>
   </div>
-  <!-- Jumbotron -->
-</section>
-<!-- Section: Design Block -->
+</div>
+
+<svg class="absolute bottom-0 left-0 " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+  <path fill="#fff" fill-opacity="1"
+    d="M0,0L40,42.7C80,85,160,171,240,197.3C320,224,400,192,480,154.7C560,117,640,75,720,74.7C800,75,880,117,960,154.7C1040,192,1120,224,1200,213.3C1280,203,1360,149,1400,122.7L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z">
+  </path>
+</svg>
