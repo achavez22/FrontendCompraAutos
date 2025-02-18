@@ -44,7 +44,7 @@ export class LoginComponent extends AppBaseComponent {
 
       this.authService.signIn(dtoLogin)
         .subscribe(response => {
-          this.router.navigateByUrl("/portafolio");
+          this.router.navigateByUrl("/dashboard");
 
         }, error => {
           Swal.fire('Error', error.error.detail, 'error');          

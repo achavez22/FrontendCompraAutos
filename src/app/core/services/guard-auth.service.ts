@@ -15,7 +15,7 @@ export class GuardAuthService {
    */
   public canActiveLogin(): boolean {
     if (this.tokenService.getToken()) {
-      this.router.navigateByUrl("/portafolio");
+      this.router.navigateByUrl("/dashboard");
       return false;
     }
 
@@ -28,7 +28,7 @@ export class GuardAuthService {
   public canActiveWithAuth(): boolean {
     if (!this.tokenService.getToken()) {
       alert("no tienes permisos");
-      this.router.navigateByUrl("/autho/login");
+      this.router.navigateByUrl("/login");
       return false;
     }
 
@@ -39,7 +39,7 @@ export class GuardAuthService {
 
     if (this.tokenService.getInfoToken().rol != Roles.ADMIN && !this.canActiveWithAuth()) {
       alert("no tienes permisos");
-      this.router.navigateByUrl("/autho/login");
+      this.router.navigateByUrl("/login");
       return false;
     }
 

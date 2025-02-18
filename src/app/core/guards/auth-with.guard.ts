@@ -16,7 +16,7 @@ export class AuthWithGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
     if (this.tokenService.getToken()) {
-      this.router.navigateByUrl("/portafolio");
+      this.router.navigateByUrl("/dashboard");
       return true;
     }
 

@@ -18,7 +18,7 @@ export class AuthWithoutGuard implements CanActivate {
 
     if (!this.tokenService.getToken()) {
       alert("no tienes permisos");
-      this.router.navigateByUrl("/autho/login");
+      this.router.navigateByUrl("/login");
       return false;
     }
 

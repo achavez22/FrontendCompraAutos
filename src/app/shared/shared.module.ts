@@ -3,11 +3,13 @@ import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
 import { HeaderNavComponent } from "./header-nav/header-nav.component";
 import { FooterComponent } from "./footer/footer.component";
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
     declarations: [
         HeaderNavComponent, 
-        FooterComponent
+        FooterComponent, 
+        SidebarComponent
     ],
     imports: [
         CommonModule, 
@@ -16,7 +18,8 @@ import { FooterComponent } from "./footer/footer.component";
     
     exports: [
         HeaderNavComponent, 
-        FooterComponent
+        FooterComponent,
+        SidebarComponent
     ]
   })
   export class SharedModule { }

@@ -10,6 +10,6 @@ export class AppComponent {
   title = 'Autos-Frontend';
 
   constructor(private router: Router) {
-    this.router.navigateByUrl("/autho/login");
+    this.router.navigateByUrl("/login");
   }
 }

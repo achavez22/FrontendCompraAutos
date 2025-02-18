@@ -22,13 +22,11 @@ export class TokenService {
 
   public deleteToken(): void {
     sessionStorage.removeItem('token');
-    // sessionStorage.removeItem('usuario');
   }
 
 
   public getInfoToken(): CustomerJwtDto {
     let infoToken = jwt_decode(sessionStorage.getItem('token'));
-    console.log(infoToken)
     return <CustomerJwtDto>infoToken;
   }
 

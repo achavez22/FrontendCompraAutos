@@ -37,7 +37,7 @@ export class HeaderNavComponent {
   public logout(): void{ 
     this.authService.logout();
     Swal.fire('Logout',  ` ${this.emailCustomer }, has cerrado sesion con exito! `, 'success' );
-    this.router.navigate(['autho/login']); 
+    this.router.navigate(['login']); 
   }
 
 }
